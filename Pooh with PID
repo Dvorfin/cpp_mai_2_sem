@@ -269,7 +269,7 @@ int main()
 
 		Text txtH; // задаем тексты
 
-
+		
 
 		// Обрабатываем очередь событий в цикле
 		Event event;
@@ -365,8 +365,6 @@ int main()
 
 	//	}
 
-
-
 			window.clear(Color(175, 180, 240, 0));	// Отрисовка окна
 
 			CircleShape circle(30.f);
@@ -405,6 +403,14 @@ int main()
 			window.draw(duplo);
 
 
+			CircleShape leafs(90.f);
+			leafs.setFillColor(Color(59, 122, 50));
+			leafs.setOutlineThickness(2.f); // Устанавливаем толщину контура круга
+			leafs.setOutlineColor(Color(50, 112, 50)); // Устанавливаем цвет контура
+			leafs.move(410, 70);
+			window.draw(leafs);
+
+
 			strH = "Hight: " + to_string(h);
 
 			txtH.setFont(font);
@@ -429,7 +435,7 @@ int main()
 
 	}
 
-	this_thread::sleep_for(std::chrono::milliseconds(500));
+	this_thread::sleep_for(std::chrono::milliseconds(2500));
 
 	return 0;
 	
