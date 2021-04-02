@@ -16,6 +16,17 @@ class Bear
 
 public:
 
+	void bearMovement(RenderWindow &window)
+	{
+		CircleShape circle(30.f);			// сам пух в виде кружка 
+		circle.setFillColor(Color(209, 95, 238));
+		circle.setOutlineThickness(5.f); // Устанавливаем толщину контура круга
+		circle.setOutlineColor(Color(255, 182, 193)); // Устанавливаем цвет контура
+		circle.move(x, y - bear_h * 10.0);
+		window.draw(circle);
+	}
+
+
 	void setHeight()
 	{
 		cout << "Set height: ";
@@ -113,6 +124,9 @@ private:
 	double t;
 	bool check = 0;
 	double enginePower;
+
+	int x = 370;
+	int y = 800;
 
 };
 
@@ -325,20 +339,11 @@ int main()
 
 		//cout << "Time: " << t << endl;
 
-		
 		this_thread::sleep_for(std::chrono::milliseconds(8));
 
-
 		window.clear(Color(175, 180, 240, 0));	// Отрисовка окна
-		
-		CircleShape circle(30.f);			// сам пух в виде кружка 
-		circle.setFillColor(Color(209, 95, 238));
-		circle.setOutlineThickness(5.f); // Устанавливаем толщину контура круга
-		circle.setOutlineColor(Color(255, 182, 193)); // Устанавливаем цвет контура
 
-		circle.move(x, y-h*10.0);
-		window.draw(circle);
-
+		Pooh.bearMovement(window);
 
 		terrain.drawTerrain(window);
 
@@ -346,7 +351,7 @@ int main()
 
 		drawText(window, strH);
 		
-		window.display();		// Отрисовка окна
+		window.display();	// Отрисовка окна
 
 	}
 
